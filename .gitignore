@@ -57,6 +57,7 @@ node_modules/
 
 # virtual environments
 .env
+.local_env
 
 # User-uploaded media
 dproject/media/
