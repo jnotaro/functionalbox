@@ -21,7 +21,7 @@ env.read_env()
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Raises ImproperlyConfigured exception if DJANGO_SECRET_KEY not in os.environ
-SECRET_KEY = env('DJANGO_SECRET_KEY')
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='au1^24o)8*sg2ryru$glz@!f3ba+tu&*^#fvwugsxn)c5ax6zd')
 
 # This ensures that Django will be able to detect a secure connection
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -110,24 +110,24 @@ DATABASES = {
 TIME_ZONE = 'UTC'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'de'
 
 LANGUAGES = [
-    ('en', 'English'),
-    ('es', 'Spanish'),
     ('de', 'German'),
-    ('fr', 'French'),
-    ('it', 'Italian'),
-    ('pt', 'Portuguese'),
-    ('zh-hans', 'Simplified Chinese'),
-    ('zh-hant', 'Traditional Chinese'),
-    ('ja', 'Japanese'),
-    ('hi', 'Hindi'),
-    ('ar', 'Arabic'),
-    ('bn', 'Bengali'),
-    ('ru', 'Russian'),
-    ('vi', 'Vietnamese'),
-    ('ko', 'Korean'),
+    ('en', 'English'),
+    # ('es', 'Spanish'),
+    # ('fr', 'French'),
+    # ('it', 'Italian'),
+    # ('pt', 'Portuguese'),
+    # ('zh-hans', 'Simplified Chinese'),
+    # ('zh-hant', 'Traditional Chinese'),
+    # ('ja', 'Japanese'),
+    # ('hi', 'Hindi'),
+    # ('ar', 'Arabic'),
+    # ('bn', 'Bengali'),
+    # ('ru', 'Russian'),
+    # ('vi', 'Vietnamese'),
+    # ('ko', 'Korean'),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
