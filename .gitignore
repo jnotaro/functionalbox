@@ -58,6 +58,8 @@ node_modules/
 # virtual environments
 .env
 .local_env
+env
+env/*
 
 # User-uploaded media
 dproject/media/
