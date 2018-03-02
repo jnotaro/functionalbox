@@ -42,6 +42,8 @@
           <ul class="nav navbar-nav">
             <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
             <li><a href="{% url 'about' %}">{% trans 'About' %}</a></li>
+            <li><a href="{% url 'fbox' %}">{% trans 'My Box' %}</a></li>
+            <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ LANGUAGE_CODE }}</a>
               <ul class="dropdown-menu" aria-labelledby="dropdown02">{% for lang in LANGUAGES %}

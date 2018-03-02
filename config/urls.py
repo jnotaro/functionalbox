@@ -5,6 +5,8 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from socialmedia import urls as socialmedia_urls
+from socialmedia.core import views as core_views
 
 
 urlpatterns = [
@@ -12,6 +14,8 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
+    url(r'^yourbox/', core_views.home, name='fbox'),
+    url(r'^feeds/', include('socialmedia.feeds.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

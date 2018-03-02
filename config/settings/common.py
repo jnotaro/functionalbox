@@ -41,11 +41,21 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'crispy_forms',
+    'taggit',
 )
 
-# Apps specific for this project go here.
+# Apps specific for this project go her
 LOCAL_APPS = (
     'imprint',
+    'socialmedia.activities',
+    'socialmedia.articles',
+    'socialmedia.authentication',
+    'socialmedia.core',
+    'socialmedia.feeds',
+    'socialmedia.messenger',
+    'socialmedia.questions',
+    'socialmedia.search',
+
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -333,3 +343,5 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.SHA1PasswordHasher',
 ]
 
+#social media
+ALLOWED_SIGNUP_DOMAINS = ['*']
