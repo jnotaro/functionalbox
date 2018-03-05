@@ -37,6 +37,7 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.admin',
+    'django.contrib.humanize',
 )
 
 THIRD_PARTY_APPS = (

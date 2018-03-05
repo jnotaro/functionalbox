@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="{% url 'home' %}">Bootcamp</a>
+              <a class="navbar-brand" href="{% url 'fbox' %}">Bootcamp</a>
             </div>
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
@@ -86,8 +86,8 @@
       </header>
       <main>
         <div class="container">
-          {% block main %}
-          {% endblock main %}
+          {% block content %}
+          {% endblock content %}
         </div>
       </main>
       <script src="{% static 'js/notifications.js' %}"></script>

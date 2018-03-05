@@ -60,6 +60,7 @@ node_modules/
 .local_env
 env
 env/*
+local_env
 
 # User-uploaded media
 dproject/media/

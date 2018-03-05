@@ -6,7 +6,7 @@
   <script src="{% static 'js/articles.js' %}"></script>
 {% endblock head %}
 
-{% block main %}
+{% block content %}
   <ol class="breadcrumb">
     <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
     <li class="active">{% trans 'Drafts' %}</li>
@@ -39,4 +39,4 @@
       {% endfor %}
     </tbody>
   </table>
-{% endblock main %}
+{% endblock content %}

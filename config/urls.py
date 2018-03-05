@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from socialmedia import urls as socialmedia_urls
 from socialmedia.core import views as core_views
-
+from socialmedia.activities import views as activities_views
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -15,7 +15,18 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^yourbox/', core_views.home, name='fbox'),
+    url(r'^network/$', core_views.network, name='network'),
     url(r'^feeds/', include('socialmedia.feeds.urls')),
+    url(r'^questions/', include('socialmedia.questions.urls')),
+    url(r'^articles/', include('socialmedia.articles.urls')),
+    url(r'^messages/', include('socialmedia.messenger.urls')),
+    url(r'^notifications/$', activities_views.notifications,
+        name='notifications'),
+    url(r'^notifications/last/$', activities_views.last_notifications,
+        name='last_notifications'),
+    url(r'^notifications/check/$', activities_views.check_notifications,
+        name='check_notifications'),
+    url(r'^(?P<username>[^/]+)/$', core_views.profile, name='profile'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
