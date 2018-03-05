@@ -12,20 +12,7 @@
     <title>{% block title %}Functional Box{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 
-  <!-- For Ajax Search suggestion SOCIALMEDIA -->
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all"/>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{% static 'css/socialmedia.css' %}?v=1" rel="stylesheet">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- For Ajax Search suggestion -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="{% static 'js/bootcamp.js' %}"></script>
-    {% block head %}{% endblock %}
+
 
     <!-- Third-party CSS libraries go here -->
     <link href="{% static 'bootstrap3/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -37,6 +24,20 @@
     {% block css %}
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endblock %}
+    <!-- For Ajax Search suggestion SOCIALMEDIA -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/socialmedia.css' %}?v=1" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- For Ajax Search suggestion -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>#}
+    <script src="{% static 'js/bootcamp.js' %}"></script>
+    {% block head %}{% endblock %}
   </head>
 
   <body>
@@ -88,19 +89,24 @@
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                  <li><a class="dropdown-item" role="presentation" href="#">{% trans 'Profile' %}</a></li>
+                  <li><a class="dropdown-item" role="presentation" href="{% url 'profile' user.username %}">{% trans 'Profile' %}</a></li>
+                  <li><a href="{% url 'settings' %}">{% trans 'Account Settings' %}</a></li>
                   <li><a class="dropdown-item" role="presentation" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a></li>
+                  <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
+                  <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
+                  <li><a href="{% url 'questions' %}">{% trans 'Q&A' %}</a></li>
+                  <li><a href="{% url 'network' %}">{% trans 'Network' %}</a></li>
+                  <li><a href="{% url 'inbox' %}">Inbox  <span class="badge" id="unread-count">0</span></a></li>
                   <li><a class="dropdown-item" role="presentation" href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
+
                 </ul>
               </li>
             {% else %}
               <li><a href="{% url 'login' %}">{% trans 'Log in' %}</a></li>
+              <li><a href="{% url 'signup' %}">{% trans 'Sign up' %}</a></li>
+
             {% endif %}
-          <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
-                <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
-                <li><a href="{% url 'questions' %}">{% trans 'Q&A' %}</a></li>
-                <li><a href="{% url 'network' %}">{% trans 'Network' %}</a></li>
-                <li><a href="{% url 'inbox' %}">Inbox  <span class="badge" id="unread-count">0</span></a></li>
+
           </ul>
         </div>
       </div>

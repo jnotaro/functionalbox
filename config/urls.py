@@ -8,6 +8,7 @@ from django.views import defaults as default_views
 from socialmedia import urls as socialmedia_urls
 from socialmedia.core import views as core_views
 from socialmedia.activities import views as activities_views
+from socialmedia.authentication import views as socialmedia_auth_views
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -15,6 +16,14 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^yourbox/', core_views.home, name='fbox'),
+    url(r'^signup/$', socialmedia_auth_views.signup, name='signup'),
+    url(r'^settings/$', core_views.settings, name='settings'),
+    url(r'^settings/picture/$', core_views.picture, name='picture'),
+    url(r'^settings/upload_picture/$', core_views.upload_picture,
+      name='upload_picture'),
+    url(r'^settings/save_uploaded_picture/$', core_views.save_uploaded_picture,
+      name='save_uploaded_picture'),
+    url(r'^settings/password/$', core_views.password, name='password'),
     url(r'^network/$', core_views.network, name='network'),
     url(r'^feeds/', include('socialmedia.feeds.urls')),
     url(r'^questions/', include('socialmedia.questions.urls')),
