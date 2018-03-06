@@ -1,31 +1,28 @@
-{% extends 'base.html' %}
+{% extends "base_fbx_content.html" %}
 
 {% load staticfiles i18n %}
 
-{% block head %}
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-{% endblock head %}
-
 {% block content %}
-  <h1 class="logo"><a href="{% url 'fbox' %}">Functional Box</a></h1>
-  <div class="signup">
-    <h2>{% trans 'Sign up for Functional Box' %}</h2>
-    <form action="{% url 'signup' %}" method="post" role="form">
-      {% csrf_token %}
-      {% for field in form.visible_fields %}
-        <div class="form-group{% if field.errors %} has-error{% endif %}">
-          <label for="{{ field.label }}">{{ field.label }}</label>
-          {{ field }}
-          {% if field.help_text %}
-            <span class="help-block">{{ field.help_text|safe }}</span>
-          {% endif %}
-          {% for error in field.errors %}
-            <label class="control-label">{{ error }}</label>
-          {% endfor %}
-        </div>
-      {% endfor %}
-      <button type="submit" class="btn btn-primary btn-lg">{% trans 'Create an account' %}</button>
-    </form>
+  <div class="container">
+    <h1 class="logo"><a href="{% url 'fbox' %}">Functional Box</a></h1>
+    <div class="signup">
+      <h2>{% trans 'Sign up for Functional Box' %}</h2>
+      <form action="{% url 'signup' %}" method="post" role="form">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+          <div class="form-group{% if field.errors %} has-error{% endif %}">
+            <label for="{{ field.label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.help_text %}
+              <span class="help-block">{{ field.help_text|safe }}</span>
+            {% endif %}
+            {% for error in field.errors %}
+              <label class="control-label">{{ error }}</label>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary btn-lg">{% trans 'Create an account' %}</button>
+      </form>
+    </div>
   </div>
 {% endblock content %}

@@ -1,14 +1,33 @@
-{% extends "base.html" %}
+{% extends "base_fbx_content.html" %}
 {% load i18n %}
 
 {% block title %}{{ site_name }}{% endblock %}
 
 {% block content %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Functional Box coming soon</h1>
-    </div>
-  </div>
-</div>
+
+  <section id="site-facts">
+			<div class="container wrapper">
+				<div class="circle">
+					<ul class="facts-list">
+						<li>
+							<div class="fact-icon"><i class="icon ion-ios-people-outline"></i></div>
+							<h3 class="text-white">1,01,242</h3>
+							<p>People registered</p>
+						</li>
+						<li>
+							<div class="fact-icon"><i class="icon ion-images"></i></div>
+							<h3 class="text-white">21,01,242</h3>
+							<p>Posts published</p>
+						</li>
+						<li>
+							<div class="fact-icon"><i class="icon ion-checkmark-round"></i></div>
+							<h3 class="text-white">41,242</h3>
+							<p>People online</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+
 {% endblock %}

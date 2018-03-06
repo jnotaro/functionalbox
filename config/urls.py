@@ -9,6 +9,7 @@ from socialmedia import urls as socialmedia_urls
 from socialmedia.core import views as core_views
 from socialmedia.activities import views as activities_views
 from socialmedia.authentication import views as socialmedia_auth_views
+from socialmedia.search import views as search_views
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -35,6 +36,7 @@ urlpatterns = [
         name='last_notifications'),
     url(r'^notifications/check/$', activities_views.check_notifications,
         name='check_notifications'),
+    url(r'^search/$', search_views.search, name='search'),
     url(r'^(?P<username>[^/]+)/$', core_views.profile, name='profile'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
