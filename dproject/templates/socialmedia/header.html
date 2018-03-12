@@ -1,0 +1,114 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!-- Header
+    ================================================= -->
+		<header id="header" >
+      <nav class="navbar navbar-default navbar-fixed-top menu">
+        <div class="container">
+
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'fbox' %}">{% comment %}<img src="{% static 'img/fbx/logo.png' %}" alt="logo" />{% endcomment %}<span class="text-white">Functional Box</span></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right main-menu">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span><img src="{% static 'img/fbx/down-arrow.png' %}" alt="" /></span></a>
+                <ul class="dropdown-menu newsfeed-home">
+                  <li><a href="index.html">Landing Page 1</a></li>
+                  <li><a href="index-register.html">Landing Page 2</a></li>
+                </ul>
+              </li>
+              {% if request.user.is_authenticated %}
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span><i class="fa fa-user fa-fw" aria-hidden="true"></i>{{ request.user }}</span>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                  <li><a class="dropdown-item" role="presentation" href="{% url 'profile' user.username %}">{% trans 'Profile' %}</a></li>
+                  <li><a href="{% url 'settings' %}">{% trans 'Account Settings' %}</a></li>
+                  <li><a class="dropdown-item" role="presentation" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a></li>
+                  <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
+                  <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
+                  <li><a href="{% url 'questions' %}">{% trans 'Q&A' %}</a></li>
+                  <li><a href="{% url 'network' %}">{% trans 'Network' %}</a></li>
+                  <li><a href="{% url 'inbox' %}">Inbox  <span class="badge" id="unread-count">0</span></a></li>
+                  <li><a class="dropdown-item" role="presentation" href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
+
+                </ul>
+              </li>
+            {% else %}
+              <li><a href="{% url 'login' %}">{% trans 'Log in' %}</a></li>
+              <li><a href="{% url 'signup' %}">{% trans 'Sign up' %}</a></li>
+
+            {% endif %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="{% static 'img/fbx/down-arrow.png' %}" alt="" /></span></a>
+                <ul class="dropdown-menu newsfeed-home">
+                  <li><a href="newsfeed.html">Newsfeed</a></li>
+                  <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
+                  <li><a href="newsfeed-friends.html">My friends</a></li>
+                  <li><a href="newsfeed-messages.html">Chatroom</a></li>
+                  <li><a href="newsfeed-images.html">Images</a></li>
+                  <li><a href="newsfeed-videos.html">Videos</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="{% static 'img/fbx/down-arrow.png' %}" alt="" /></span></a>
+                <ul class="dropdown-menu login">
+                  <li><a href="timeline.html">Timeline</a></li>
+                  <li><a href="timeline-about.html">Timeline About</a></li>
+                  <li><a href="timeline-album.html">Timeline Album</a></li>
+                  <li><a href="timeline-friends.html">Timeline Friends</a></li>
+                  <li><a href="edit-profile-basic.html">Edit: Basic Info</a></li>
+                  <li><a href="edit-profile-work-edu.html">Edit: Work</a></li>
+                  <li><a href="edit-profile-interests.html">Edit: Interests</a></li>
+                  <li><a href="edit-profile-settings.html">Account Settings</a></li>
+                  <li><a href="edit-profile-password.html">Change Password</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle pages" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Pages <span><img src="{% static 'img/fbx/down-arrow.png' %}" alt="" /></span></a>
+                <ul class="dropdown-menu page-list">
+                  <li><a href="index.html">Landing Page 1</a></li>
+                  <li><a href="index-register.html">Landing Page 2</a></li>
+                  <li><a href="newsfeed.html">Newsfeed</a></li>
+                  <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
+                  <li><a href="newsfeed-friends.html">My friends</a></li>
+                  <li><a href="newsfeed-messages.html">Chatroom</a></li>
+                  <li><a href="newsfeed-images.html">Images</a></li>
+                  <li><a href="newsfeed-videos.html">Videos</a></li>
+                  <li><a href="timeline.html">Timeline</a></li>
+                  <li><a href="timeline-about.html">Timeline About</a></li>
+                  <li><a href="timeline-album.html">Timeline Album</a></li>
+                  <li><a href="timeline-friends.html">Timeline Friends</a></li>
+                  <li><a href="edit-profile-basic.html">Edit Profile</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                  <li><a href="faq.html">FAQ Page</a></li>
+                  <li><a href="404.html">404 Not Found</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="contact.html">Contact</a></li>
+            </ul>
+            <form class="navbar-form navbar-right hidden-sm" action="/search/" method="GET">
+              {% csrf_token %}
+              <div class="form-group">
+                <i class="icon ion-android-search"></i>
+                <input type="text" class="form-control" placeholder="Search friends, photos, videos">
+              </div>
+            </form>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+      </nav>
+    </header>
+    <!--Header End-->

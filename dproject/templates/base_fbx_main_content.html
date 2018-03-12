@@ -6,37 +6,32 @@
 
 <html lang="{{ LANGUAGE_CODE }}">
 	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="This is social network for functional trainging, free workout, tips and how you can be fit building you own box at home or wherever you want." />
-		<meta name="keywords" content="Social Network, Social Media, Make Friends, Newsfeed, Functional training, training box, functional box" />
+		<meta name="description" content="This is social network for functional and fitness training" />
+		<meta name="keywords" content="Social Network, Social Media, Fitness, Functional, Training together" />
 		<meta name="robots" content="index, follow" />
 		<title>{% block title %}Functional Box{% endblock %}</title>
 
     <!-- Stylesheets
     ================================================= -->
-		<link rel="stylesheet" href="{% static 'css/fbx/bootstrap.min.css' %}" />
+		<link href="{% static 'bootstrap3/css/bootstrap.min.css' %}" rel="stylesheet">
 		<link rel="stylesheet" href="{% static 'css/fbx/style.css' %}" />
-		<link rel="stylesheet" href="{% static 'css/fbx/ionicons.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/fbx/font-awesome.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/fbx/ionicons.min.css' %}" />
+        <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/fbx/emoji.css' %}" rel="stylesheet">
 
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
-    {% block head %}{% endblock %}
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 	</head>
-	<body>
-
-    <!--preloader-->
-    <div id="spinner-wrapper">
-      <div class="spinner"></div>
-    </div>
+  <body>
 
     <!-- Header
     ================================================= -->
-		<header id="header" class="lazy-load">
+		<header id="header" >
       <nav class="navbar navbar-default navbar-fixed-top menu">
         <div class="container">
 
@@ -146,222 +141,17 @@
     </header>
     <!--Header End-->
 
-    <!-- Top Banner
-    ================================================= -->
-		<section id="banner">
-			<div class="container">
+    <div id="page-contents">
+    	<div class="container">
+    		<div class="row">
 
-        <!-- Sign Up Form
-        ================================================= -->
-        <div class="sign-up-form">
-					<a href="index.html" class="logo">{% comment %}<img src="images/logo.png" alt="Functional Box"/>{% endcomment %}be healthy be functional</a>
-					<h2 class="text-white">Functional Box</h2>
-					<div class="line-divider"></div>
-					<div class="form-wrapper">
-						<p class="signup-text">Signup now and meet awesome people getting fit.</p>
-						<form action="{% url 'signup' %}"  method="post" role="form">
-							<fieldset class="form-group">
-								<input type="text" class="form-control" id="example-name" placeholder="Enter name">
-							</fieldset>
-							<fieldset class="form-group">
-								<input type="email" class="form-control" id="example-email" placeholder="Enter email">
-							</fieldset>
-							<fieldset class="form-group">
-								<input type="password" class="form-control" id="example-password" placeholder="Enter a password">
-							</fieldset>
-						</form>
-						<p>By signning up you agree to the terms</p>
-						<button class="btn-secondary">Signup</button>
-					</div>
-					<a href="{% url 'login' %}">Already have an account?</a>
-					<img class="form-shadow" src="{% static 'img/fbx/bottom-shadow.png' %}" alt="" />
-				</div><!-- Sign Up Form End -->
+                {% block content %}
+                {% endblock content %}
+    		</div>
+    	</div>
+    </div>
 
-        <svg class="arrows hidden-xs hidden-sm">
-          <path class="a1" d="M0 0 L30 32 L60 0"></path>
-          <path class="a2" d="M0 20 L30 52 L60 20"></path>
-          <path class="a3" d="M0 40 L30 72 L60 40"></path>
-        </svg>
-			</div>
-		</section>
-
-    <!-- Features Section
-    ================================================= -->
-		<section id="features">
-			<div class="container wrapper">
-				<h1 class="section-title slideDown">social box</h1>
-				<div class="row slideUp">
-					<div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
-						<div class="feature-icon"><i class="icon ion-person-add"></i></div>
-						<h3>Make Friends</h3>
-					</div>
-					<div class="feature-item col-md-2 col-sm-6 col-xs-6">
-						<div class="feature-icon"><i class="icon ion-images"></i></div>
-						<h3>Publish workouts</h3>
-					</div>
-					<div class="feature-item col-md-2 col-sm-6 col-xs-6">
-						<div class="feature-icon"><i class="icon ion-chatbox-working"></i></div>
-						<h3>Ask your questions</h3>
-					</div>
-					<div class="feature-item col-md-2 col-sm-6 col-xs-6">
-						<div class="feature-icon"><i class="icon ion-compose"></i></div>
-						<h3>Create your box</h3>
-					</div>
-				</div>
-				<h2 class="sub-title">find awesome people like you</h2>
-				<div id="incremental-counter" data-value="5"></div>
-				<p>People Already Signed Up</p>
-				<img src="images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
-			</div>
-
-		</section>
-
-{% comment %}
-    <!-- Download Section
-    ================================================= -->
-		<section id="app-download">
-			<div class="container wrapper">
-				<h1 class="section-title slideDown">download</h1>
-				<ul class="app-btn list-inline slideUp">
-					<li><button class="btn-secondary"><img src="{% static 'img/fbx/app-store.png' %}" alt="App Store" /></button></li>
-					<li><button class="btn-secondary"><img src="{% static 'img/fbx/google-play.png' %}" alt="Google Play" /></button></li>
-				</ul>
-				<h2 class="sub-title">stay connected anytime, anywhere</h2>
-				<img src="http://placehold.it/800x190" alt="iPhone" class="img-responsive" />
-			</div>
-		</section>{% endcomment %}
-
-    <!-- Image Divider
-    ================================================= -->
-    <div class="img-divider hidden-sm hidden-xs"></div>
-
-
-
-
-      {% block content %}
-      {% endblock content %}
-
-
-    {% comment %}<!-- Facts Section
-    ================================================= -->
-		<section id="site-facts">
-			<div class="container wrapper">
-				<div class="circle">
-					<ul class="facts-list">
-						<li>
-							<div class="fact-icon"><i class="icon ion-ios-people-outline"></i></div>
-							<h3 class="text-white">1,01,242</h3>
-							<p>People registered</p>
-						</li>
-						<li>
-							<div class="fact-icon"><i class="icon ion-images"></i></div>
-							<h3 class="text-white">21,01,242</h3>
-							<p>Posts published</p>
-						</li>
-						<li>
-							<div class="fact-icon"><i class="icon ion-checkmark-round"></i></div>
-							<h3 class="text-white">41,242</h3>
-							<p>People online</p>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-    <!-- Live Feed Section
-    ================================================= -->
-		<section id="live-feed">
-			<div class="container wrapper">
-				<h1 class="section-title slideDown">live feed</h1>
-				<ul class="online-users list-inline slideUp">
-					<li><a href="#" title="Alexis Clark"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="James Carter"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Robert Cook"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Richard Bell"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Anna Young"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Julia Cox"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-				</ul>
-				<h2 class="sub-title">see what’s happening now</h2>
-				<div class="row">
-					<div class="col-md-4 col-sm-6 col-md-offset-2">
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sarah</a> just posted a photo from Moscow</p>
-								<p class="text-muted">20 Secs ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">John</a> Published a post from Sydney</p>
-								<p class="text-muted">1 min ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Julia</a> Updated her status from London</p>
-								<p class="text-muted">5 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sophia</a> Share a photo from Virginia</p>
-								<p class="text-muted">10 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Linda</a> just posted a photo from Toronto</p>
-								<p class="text-muted">20 mins ago</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Nora</a> Shared an article from Ohio</p>
-								<p class="text-muted">22 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Addison</a> Created a poll from Barcelona</p>
-								<p class="text-muted">23 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Diana</a> Posted a video from Captown</p>
-								<p class="text-muted">27 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sarah</a> Shared friend's post from Moscow</p>
-								<p class="text-muted">30 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Emma</a> Started a new job at Torronto</p>
-								<p class="text-muted">33 mins ago</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>{% endcomment %}
-
-    <!-- Footer
+   <!-- Footer
     ================================================= -->
 		<footer id="footer">
       <div class="container">
@@ -425,12 +215,18 @@
       </div>
 		</footer>
 
+    <!--preloader-->
+    <div id="spinner-wrapper">
+      <div class="spinner"></div>
+    </div>
+
     <!-- Scripts
     ================================================= -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap"></script>
     <script src="{% static 'js/fbx/jquery-3.1.1.min.js' %}"></script>
     <script src="{% static 'js/fbx/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/fbx/jquery.appear.min.js' %}"></script>
-    <script src="{% static 'js/fbx/jquery.incremental-counter.js' %}"></script>
+    <script src="{% static 'js/fbx/jquery.sticky-kit.min.js' %}"></script>
+    <script src="{% static 'js/fbx/jquery.scrollbar.min.js' %}"></script>
     <script src="{% static 'js/fbx/script.js' %}"></script>
-	</body>
+  </body>
 </html>
