@@ -1,6 +1,25 @@
 {% load i18n %}
-<div class="list-group">
-  <a href="{% url 'settings' %}" class="list-group-item{% if active == 'profile' %} active{% endif %}">{% trans 'Profile' %}</a>
-  <a href="{% url 'picture' %}" class="list-group-item{% if active == 'picture' %} active{% endif %}">{% trans 'Picture' %}</a>
-  <a href="{% url 'password' %}" class="list-group-item{% if active == 'password' %} active{% endif %}">{% trans 'Password' %}</a>
-</div>
+<ul class="edit-menu">active:{{ active }}
+    <li {% if active == 'profile' %}class="active"{% endif %}>
+        <i class="icon ion-ios-information-outline"></i>
+        <a href="{% url 'settings' %}"
+           {% if active == 'profile' %}class="active"{% endif %}>{% trans 'Profile' %}</a>
+    </li>
+    <li {% if active == "picture" %} class="active"{% endif %}>
+        <i class="icon ion-ios-briefcase-outline"></i>
+        <a href="{% url 'picture' %}"
+          {% if active == "picture" %} class="active"{% endif %}>{% trans 'Picture' %}</a>
+    </li>
+    <li {% if active == 'password' %}class="active"{% endif %}>
+        <i class="icon ion-ios-locked-outline"></i>
+        <a href="{% url 'password' %}"
+           {% if active == 'password' %}class="active"{% endif %}>{% trans 'Password' %}</a>
+    </li>
+    {% comment %}
+     <li>
+    <i class="icon ion-ios-settings"></i><a href="edit-profile-settings.html">Account
+    Settings</a></li>
+<li><i class="icon ion-ios-locked-outline"></i><a href="edit-profile-password.html">Change
+    Password</a></li>{% endcomment %}
+</ul>
+
