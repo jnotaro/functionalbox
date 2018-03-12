@@ -6,7 +6,7 @@ from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from socialmedia import urls as socialmedia_urls
-from socialmedia.core import views as core_views
+from socialmedia.basecore import views as core_views
 from socialmedia.activities import views as activities_views
 from socialmedia.authentication import views as socialmedia_auth_views
 from socialmedia.search import views as search_views

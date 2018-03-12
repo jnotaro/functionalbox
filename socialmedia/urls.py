@@ -5,12 +5,12 @@ from django.contrib.auth import views as auth_views
 
 from socialmedia.activities import views as activities_views
 from socialmedia.authentication import views as bootcamp_auth_views
-from socialmedia.core import views as core_views
+from socialmedia.basecore import views as core_views
 from socialmedia.search import views as search_views
 
 urlpatterns = [
     url(r'^$', core_views.home, name='home'),
-    url(r'^login', auth_views.login, {'template_name': 'core/cover.html'},
+    url(r'^login', auth_views.login, {'template_name': 'basecore/cover.html'},
         name='login'),
     url(r'^logout', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^signup/$', bootcamp_auth_views.signup, name='signup'),

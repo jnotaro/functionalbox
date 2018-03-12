@@ -51,7 +51,7 @@ LOCAL_APPS = (
     'socialmedia.activities',
     'socialmedia.articles',
     'socialmedia.authentication',
-    'socialmedia.core',
+    'socialmedia.basecore',
     'socialmedia.feeds',
     'socialmedia.messenger',
     'socialmedia.questions',
