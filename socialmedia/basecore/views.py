@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
-from socialmedia.core.forms import ChangePasswordForm, ProfileForm
+from socialmedia.basecore.forms import ChangePasswordForm, ProfileForm
 from socialmedia.feeds.views import FEEDS_NUM_PAGES, feeds
 from socialmedia.feeds.models import Feed
 from socialmedia.articles.models import Article, ArticleComment

@@ -5,7 +5,7 @@
 
 {% block title %}Account Settings{% endblock %}
 
-{% block content %} hhhh
+{% block content %}
 
     <div class="timeline">
         <div class="timeline-cover">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-9">
                         <ul class="list-inline profile-menu">
-                            <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}{{ active }}</a></li>
+                            <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
                   <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
                   <li><a href="{% url 'questions' %}">{% trans 'Q&A' %}</a></li>
                   <li><a href="{% url 'network' %}">{% trans 'Network' %}</a></li>
@@ -61,7 +61,7 @@
                 <div class="col-md-3">
 
                     <!--Edit Profile Menu-->
-                    {% include 'core/partial_settings_menu.html' with active='profile' %}
+                    {% include 'basecore/partial_settings_menu.html' with active='profile' %}
                 </div>
                 <div class="col-md-7">
 

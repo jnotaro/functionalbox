@@ -1,5 +1,5 @@
 {% load i18n %}
-<ul class="edit-menu">active:{{ active }}
+<ul class="edit-menu">
     <li {% if active == 'profile' %}class="active"{% endif %}>
         <i class="icon ion-ios-information-outline"></i>
         <a href="{% url 'settings' %}"
