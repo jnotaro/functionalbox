@@ -207,8 +207,7 @@ def upload_bg_picture(request):
 
 @login_required
 def save_uploaded_picture(request):
-    import pdb
-    pdb.set_trace()
+
     try:
         x = int(request.POST.get('x'))
         y = int(request.POST.get('y'))

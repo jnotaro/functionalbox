@@ -1,24 +1,32 @@
 Django<2.0
 django-crispy-forms==1.6.1
-django-environ==0.4.4
 django-extensions==1.9.1
 django-smartfields==1.0.9
 #mysqlclient
-Pillow==4.3.0
 psycopg2
 pytz==2017.2
 six==1.11.0
 sorl-thumbnail==12.3
 
 #for social media
-bleach>=2.0.0
 dj-database-url>=0.4.2
 dj-static>=0.0.6
 django-autoslug>=1.9
 django-taggit>=0.22
-Markdown>=2.6
 python-decouple>=3
-Unipath>=1.1
-whitenoise>=3.3.0
 python-slugify
 easy_thumbnails
+
+argon2-cffi==18.1.0
+asgi_redis>=1.4.3
+awesome-slugify>=1.6.5
+bleach>=2.1
+channels==1.1.8
+django-environ==0.4.4
+django-redis==4.9.0
+django-taggit>=0.22
+Markdown>=2.6
+Pillow>=5.0
+#psycopg2==2.7.4 --no-binary psycopg2
+Unipath>=1.1
+whitenoise>=3.3.0
