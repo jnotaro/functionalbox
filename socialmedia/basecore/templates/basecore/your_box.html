@@ -1,0 +1,261 @@
+{% extends 'socialmedia/base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block head %}
+
+{% endblock head %}
+
+{% block content %}
+
+    <div class="page-title-section faq">
+      <div class="container">
+        <div class="headline">
+          <h1 class="title">Functional Box is a social network for fitness.</h1>
+            <p>Join us to get in touch with people and workout together.</p>
+        </div>
+        {% comment %}<div class="page-search">
+          <form class="search-form">
+            <div class="form-group">
+              <label for="search_content" class="screen-reader-text">Search Content!</label>
+              <input id="search_content" type="text" class="form-control" value="" placeholder="Search what you want to find...">
+            </div>
+            <button type="submit" class="btn btn-primary" value=""><i class="icon ion-ios-search-strong"></i></button>
+          </form>
+        </div>{% endcomment %}
+      </div>
+    </div><!-- .page-header faq -->
+
+    <div id="page-contents">
+      <div class="container ">
+
+        <!-- FAQ Menu
+        ================================================= -->
+        <ul class="nav nav-tabs faq-cat-list">
+          <li class="active"><a href="#faq_cat_1" data-toggle="tab"><i class="icon ion-ios-information-outline"></i>General</a></li>
+          <li><a href="#faq_cat_2" data-toggle="tab"><i class="icon ion-ios-person"></i>Account</a></li>
+          <li><a href="#faq_cat_3" data-toggle="tab"><i class="icon ion-eye-disabled"></i>Privacy</a></li>
+          <li><a href="#faq_cat_4" data-toggle="tab"><i class="icon ion-ios-plus-outline"></i>Other</a></li>
+        </ul><!-- .faq-cat-list -->
+
+        <div class="row">
+        	<div class="col-sm-9">
+
+            <!-- FAQ Content
+            ================================================= -->
+            <div class="tab-content faq-content">
+
+              <!-- FAQ Category Content : General -->
+              <div class="tab-pane active" id="faq_cat_1">
+                <div class="faq-headline">
+                	<h3 class="item-title grey"><i class="icon ion-ios-information-outline"></i>General Questions</h3>
+                	<p>What is all about</p>
+                </div>
+                <div class="panel-group" id="faqAccordion-1">
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion-1" data-target="#question1">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: What is the main idea?</a></h4>
+                    </div>
+                    <div id="question1" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>
+                            We want to build a social network where we help each other to build our <strong>OWN BOX</strong>.
+                            There will be companies giving special prices and conditions for our network.
+                            Next step, you publish your workouts, pictures of you box, invite friends to workout with you.
+
+                        </p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion-1" data-target="#question2">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: Why do we use it?</a></h4>
+                    </div>
+                    <div id="question2" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>
+                            Workout alone is for many people boring. But this is the future of fitness to build your own place to workout when you have time.
+                            You can also join a fitness center or personal trainer. You still can take profit of great fitness center structure AND also workout at home.
+                            Another important point is can signup functional box for <strong>FREE</strong> and you can take advantage of the discounts and special conditions that all types of companies in the fitness branch grant to our social network.
+                        </p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion-1" data-target="#question3">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: What can I get here?</a></h4>
+                    </div>
+                    <div id="question3" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>
+                            EVERYTHING.<br/>
+                            Abos in diferent fitness centers, equipments, consulting to build your box... You can also sell your products.<br>
+                            As soon as we grow strong, we will be able to get more and more better prices, conditions and discounts.
+                        </p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion-1" data-target="#question4">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: How can I start?</a></h4>
+                    </div>
+                    <div id="question4" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>
+                            JUST SIGNUP.<BR>
+                            We are in first phase of development. You can create your account and be ready for fun. We will be adding features weekly. The first promotions will come soon.
+                        </p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                  {% comment %}
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion-1" data-target="#question8">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: Why people love this?</a></h4>
+                    </div>
+                    <div id="question8" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->{% endcomment %}
+                </div><!-- .panel-group -->
+              </div><!-- #faq_cat_1 -->
+
+              <!-- FAQ Category Content : Account -->
+              <div class="tab-pane" id="faq_cat_2">
+                <div class="faq-headline">
+                	<h3 class="item-title grey"><i class="icon ion-ios-person"></i>Account</h3>
+                	<p>Features and Details</p>
+                </div>
+                <div class="panel-group" id="faqAccordion-2">
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion-2" data-target="#question9">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: Account is Locked?</a></h4>
+                    </div>
+                    <div id="question9" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>Your account is visible for all registered members. We should be able to communicate, share question and articles.
+                        Secondly, we will dispose the albuns, Workouts feed and the promotions feed where different business grant us with discounts and/or special conditions.
+                            We will be able also to send requests to business after grouping by interest. For example, if there are 20 members wanting to buy a product. They group up, and send from here an email to the seller asking for special price/condition.
+                            These features will come as soon as we grow our network.
+                        </p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion-2" data-target="#question10">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: Account types</a></h4>
+                    </div>
+                    <div id="question10" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>Just two types, Person and Business</p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion-2" data-target="#question11">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: How to Delete Account?</a></h4>
+                    </div>
+                    <div id="question11" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>
+
+                            Send us an email asking for this. <br/>
+                            We don't believe you will write us asking to delete your account. The FBox Network is ot sending any kind of email for the members.<br>
+                            All the promotions will be published on the site and when you visit us you can see the messages.
+
+                        </p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                </div><!--.panel-group-->
+              </div><!-- #faq_cat_2 -->
+
+              <!-- FAQ Category Content : Privacy -->
+              <div class="tab-pane" id="faq_cat_3">
+                <div class="faq-headline">
+                	<h3 class="item-title grey"><i class="icon ion-eye-disabled"></i>Privacy FAQ</h3>
+                	<p>What about discretion</p>
+                </div>
+                <div class="panel-group" id="faqAccordion-3">
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion-3" data-target="#question12">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: Why Privacy is Important</a></h4>
+                    </div>
+                    <div id="question12" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>Yes, we will not display your personal datas and we have our internal message system so you can display the data you want by yourself.</p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion-3" data-target="#question13">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: Why Should I see everyone?</a></h4>
+                    </div>
+                    <div id="question13" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>
+                            There is the first fitness social network, everyone that signup will be interested on it. Specially functional training, home training and fitness business in general.
+                        </p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                </div><!--.panel-group-->
+              </div><!-- #faq_cat_2 -->
+
+              <!-- FAQ Category Content : Other -->
+              <div class="tab-pane" id="faq_cat_4">
+                <div class="faq-headline">
+                	<h3 class="item-title grey"><i class="icon ion-ios-plus-outline"></i>Other FAQ</h3>
+                	<p>Other important points</p>
+                </div>
+                <div class="panel-group" id="faqAccordion-4">
+                  <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion-4" data-target="#question14">
+                      <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: What are Other Questions?</a></h4>
+                    </div>
+                    <div id="question14" class="panel-collapse collapse" style="height: 0px;">
+                      <div class="panel-body">
+                        <h5><span class="label label-primary">Answer</span></h5>
+                        <p>
+                            Write us for more questions. Help us to improve this informations.
+                        </p>
+                      </div>
+                    </div>
+                  </div><!-- .panel -->
+                </div><!--.panel-group-->
+              </div><!-- #faq_cat_2 -->
+
+            </div>
+          </div>
+        	<div class="col-sm-3">
+            <div class="faq_contact">
+              <div class="faq-headline">
+                <h3 class="item-title grey"><i class="icon ion-ios-help-outline"></i>Still Confused?</h3>
+                <p>Contact us if you still have any question.</p>
+              </div>
+              <div class="reach-out">
+                {% comment %}<div class="method by-forum"><a href="#"><i class="icon ion-chatboxes"></i>Ask in Forum</a></div>
+                <div class="method by-ticket"><a href="#"><i class="icon ion-help-circled"></i>Send Ticket</a></div>{% endcomment %}
+                <div class="method by-email"><a href="mailto: info@functionalbox.ch"><i class="icon ion-email"></i>Email us</a></div>
+{#                <div class="method by-phone"><a href="#"><i class="icon ion-android-call"></i>Call us</a></div>#}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock content %}

@@ -13,10 +13,12 @@ from socialmedia.search import views as search_views
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^$', core_views.home, name='home'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
-    url(r'^yourbox/', core_views.home, name='fbox'),
+    url(r'^yourbox/', core_views.your_box, name='fbox'),
+    url(r'^contact/', core_views.contact, name='contact_us'),
     url(r'^signup/$', socialmedia_auth_views.signup, name='signup'),
     url(r'^settings/$', core_views.settings, name='settings'),
     url(r'^settings/picture/$', core_views.picture, name='picture'),
@@ -24,12 +26,18 @@ urlpatterns = [
       name='upload_picture'),
     url(r'^settings/save_uploaded_picture/$', core_views.save_uploaded_picture,
       name='save_uploaded_picture'),
+
+    url(r'^settings/upload_bg_picture/$', core_views.upload_bg_picture,
+      name='upload_bg_picture'),
+    url(r'^settings/save_uploaded_bg_picture/$', core_views.save_uploaded_bg_picture,
+      name='save_uploaded_bg_picture'),
+
     url(r'^settings/password/$', core_views.password, name='password'),
     url(r'^network/$', core_views.network, name='network'),
     url(r'^feeds/', include('socialmedia.feeds.urls')),
     url(r'^questions/', include('socialmedia.questions.urls')),
     url(r'^articles/', include('socialmedia.articles.urls')),
-    url(r'^messages/', include('socialmedia.messenger.urls')),
+    url(r'^messages/', include('socialmedia.messenger.urls'), name='messages'),
     url(r'^notifications/$', activities_views.notifications,
         name='notifications'),
     url(r'^notifications/last/$', activities_views.last_notifications,

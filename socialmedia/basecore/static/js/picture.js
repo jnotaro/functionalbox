@@ -5,7 +5,7 @@ $(function () {
       boundy,
       xsize = 200,
       ysize = 200;
-  
+
   $("#crop-picture").Jcrop({
     aspectRatio: xsize / ysize,
     onSelect: updateCoords,
@@ -30,6 +30,14 @@ $(function () {
 
   $("#picture-upload-form input[name='picture']").change(function () {
     $("#picture-upload-form").submit();
+  });
+
+  $("#btn-upload-bg-picture").click(function () {
+    $("#picture-upload-bg-form input[name='bgpicture']").click();
+  });
+
+  $("#picture-upload-bg-form input[name='bgpicture']").change(function () {
+    $("#picture-upload-bg-form").submit();
   });
 
 });

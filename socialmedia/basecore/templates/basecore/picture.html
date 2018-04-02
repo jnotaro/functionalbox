@@ -2,9 +2,10 @@
 
 {% load i18n static %}
 
-{% block title %}{% trans 'Account Settings' %}{% endblock %}
+{% block title %}{% trans 'Picture Change' %}{% endblock %}
 
 {% block head %}
+    <!-- PICTURE FEATURE -->
   <link href="{% static 'css/jquery.Jcrop.min.css' %}" rel="stylesheet">
   <script src="{% static 'js/jquery.Jcrop.min.js' %}"></script>
   <script src="{% static 'js/picture.js' %}"></script>
@@ -34,6 +35,14 @@
         <input type="file" name="picture" style="display: none">
         <button type="button" class="btn btn-default" id="btn-upload-picture">{% trans 'Upload new picture' %}</button>
       </form>
+    <p>&nbsp;</p>
+    <h3 style="margin-top: 0">{% trans 'Change Background Picture' %}</h3>
+      <img src="{{ user.profile.get_bg_picture }}" style="width: 450px; border-radius: 5px; margin-bottom: 1em;">
+      <form enctype="multipart/form-data" method="post" action="{% url 'upload_bg_picture' %}" id="picture-upload-bg-form">
+        {% csrf_token %}
+        <input type="file" name="bgpicture" style="display: none">
+        <button type="button" class="btn btn-default" id="btn-upload-bg-picture">{% trans 'Upload background picture' %}</button>
+      </form>
 
       {% if uploaded_picture %}
         <form method="post" action="{% url 'save_uploaded_picture' %}">
@@ -57,6 +66,43 @@
                   <script type="text/javascript">
                     $(function () {
                       $("#modal-upload-picture").modal();
+                      window.history.pushState("", "", "/settings/picture/");
+                    });
+                  </script>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+                  <button type="submit" class="btn btn-primary">{% trans 'Save changes' %}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      {% endif %}
+
+    {% if uploaded_bg_picture %}
+        <h2>uploaded_bg_picture ok</h2>
+        <form method="post" action="{% url 'save_uploaded_bg_picture' %}">
+          {% csrf_token %}
+          <div class="modal fade" id="modal-upload-bg-picture">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">{% trans 'Crop Picture' %}</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="selected-picture">
+                    <p>{% trans 'Crop the profile picture and then click on the' %} <strong>{% trans 'Save Picture' %}</strong> {% trans 'button' %}</p>
+                    <img src="{% get_media_prefix %}profile_pictures/{{ user.username }}_bg_tmp.jpg?_={% now 'U' %}" id="crop-picture">
+                    <input type="hidden" id="x" name="x" />
+                    <input type="hidden" id="y" name="y" />
+                    <input type="hidden" id="w" name="w" />
+                    <input type="hidden" id="h" name="h" />
+                  </div>
+                  <script type="text/javascript">
+                    $(function () {
+                      $("#modal-upload-bg-picture").modal();
                       window.history.pushState("", "", "/settings/picture/");
                     });
                   </script>

@@ -4,9 +4,11 @@ import hashlib
 import os.path
 import urllib
 
+from PIL import Image
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.translation import gettext as _
 from django.db.models.signals import post_save
 from django.utils.encoding import python_2_unicode_compatible
 
@@ -15,13 +17,34 @@ from socialmedia.activities.models import Notification
 
 @python_2_unicode_compatible
 class Profile(models.Model):
+
+    PROFILE_TYPE = (
+        ('P', _('Person')),
+        ('B', _('Business')),
+    )
+    GENDER_OPTION =(
+        ('M',_('Male')),
+        ('F',_('Female'))
+    )
     user = models.OneToOneField(User)
-    location = models.CharField(max_length=50, null=True, blank=True)
-    url = models.CharField(max_length=50, null=True, blank=True)
-    job_title = models.CharField(max_length=50, null=True, blank=True)
+    location = models.CharField(max_length=50, null=True, blank=True,verbose_name=_('Location'))
+    url = models.CharField(max_length=50, null=True, blank=True,verbose_name=_('URL'))
+    job_title = models.CharField(max_length=50, null=True, blank=True,verbose_name=_('Title'))
+    birthday = models.DateField(null=True, blank=True,verbose_name=_('Birthday'))
+    profile_type = models.CharField(max_length=2, null=True, blank=True,choices=PROFILE_TYPE,default='P',verbose_name=_('Type'))
+    budge = models.DecimalField(max_digits=10, decimal_places=2,null=True, blank=True,verbose_name=_('Budge'))
+    about_text = models.TextField(verbose_name=_('About'))
+    gender = models.CharField(max_length=2, null=True, blank=True,choices=GENDER_OPTION,verbose_name=_('Gender'))
 
     class Meta:
         db_table = 'auth_profile'
+
+    def age(self):
+        try:
+            import datetime
+            return int((datetime.date.today() - self.birthday).days / 365.25)
+        except:
+            return 0
 
     def __str__(self):
         return self.user.username
@@ -51,6 +74,36 @@ class Profile(models.Model):
 
         except Exception:
             return no_picture
+
+
+    def get_bg_picture(self):
+        no_bg_picture = 'http://placehold.it/1030x360'
+        try:
+            filename = settings.MEDIA_ROOT + '/profile_pictures/' +\
+                self.user.username + '_bg_tmp.jpg'
+            picture_url = settings.MEDIA_URL + 'profile_pictures/' +\
+                self.user.username + '_bg_tmp.jpg'
+
+            if os.path.isfile(filename):  # pragma: no cover
+                im = Image.open(filename)
+                im2 = im.crop((0, 0, 1030, 360))
+                crop_filename = settings.MEDIA_ROOT + '/profile_pictures/' +\
+                self.user.username + '_bg_1030_tmp.jpg'
+                crop_picture_url = settings.MEDIA_URL + 'profile_pictures/' + \
+                              self.user.username + '_bg_1030_tmp.jpg'
+                if not os.path.isfile(crop_filename):
+                    im2.save(crop_filename)
+                #return picture_url
+                return crop_picture_url
+            else:  # pragma: no cover
+                gravatar_url = 'http://www.gravatar.com/avatar/{0}?{1}'.format(
+                    hashlib.md5(self.user.email.lower()).hexdigest(),
+                    urllib.urlencode({'d': no_bg_picture, 's': '256'})
+                    )
+                return gravatar_url
+
+        except Exception:
+            return no_bg_picture
 
     def get_screen_name(self):
         try:
@@ -128,6 +181,13 @@ class Profile(models.Model):
                 to_user=answer.user,
                 answer=answer).delete()
 
+    def get_messages_amount(self):
+
+        from socialmedia.messenger.models import Message
+        from django.db.models import Q
+
+        return Message.objects.filter(
+        Q(from_user=self.user) | Q(user=self.user)).count()
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:

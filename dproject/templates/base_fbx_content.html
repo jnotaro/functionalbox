@@ -159,7 +159,7 @@
 					<div class="line-divider"></div>
 					<div class="form-wrapper">
 						<p class="signup-text">Signup now and meet awesome people getting fit.</p>
-						<form action="{% url 'signup' %}"  method="post" role="form">
+						{% comment %}<form action="{% url 'signup' %}"  method="post" role="form">
 							<fieldset class="form-group">
 								<input type="text" class="form-control" id="example-name" placeholder="Enter name">
 							</fieldset>
@@ -169,9 +169,9 @@
 							<fieldset class="form-group">
 								<input type="password" class="form-control" id="example-password" placeholder="Enter a password">
 							</fieldset>
-						</form>
+						</form>{% endcomment %}
 						<p>By signning up you agree to the terms</p>
-						<button class="btn-secondary">Signup</button>
+						<a href="{% url 'signup' %}" class="btn btn-secondary">Signup</a>
 					</div>
 					<a href="{% url 'login' %}">Already have an account?</a>
 					<img class="form-shadow" src="{% static 'img/fbx/bottom-shadow.png' %}" alt="" />
@@ -363,67 +363,7 @@
 
     <!-- Footer
     ================================================= -->
-		<footer id="footer">
-      <div class="container">
-      	<div class="row">
-          <div class="footer-wrapper">
-            <div class="col-md-3 col-sm-3">
-              <a href="">{% comment %}<img src="{% static 'img/fbx/logo-black.png' %}" alt="" class="footer-logo" />{% endcomment %}<h1 class="text-green">Functional Box</h1></a>
-              <ul class="list-inline social-icons">
-              	<li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
-              	<li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
-              	<li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
-              	<li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
-              	<li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
-              </ul>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <h6>For individuals</h6>
-              <ul class="footer-links">
-                <li><a href="">Signup</a></li>
-                <li><a href="">login</a></li>
-                <li><a href="">Explore</a></li>
-                <li><a href="">Finder app</a></li>
-                <li><a href="">Features</a></li>
-                <li><a href="">Language settings</a></li>
-              </ul>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <h6>For businesses</h6>
-              <ul class="footer-links">
-                <li><a href="">Business signup</a></li>
-                <li><a href="">Business login</a></li>
-                <li><a href="">Benefits</a></li>
-                <li><a href="">Resources</a></li>
-                <li><a href="">Advertise</a></li>
-                <li><a href="">Setup</a></li>
-              </ul>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <h6>About</h6>
-              <ul class="footer-links">
-                <li><a href="">About us</a></li>
-                <li><a href="">Contact us</a></li>
-                <li><a href="">Privacy Policy</a></li>
-                <li><a href="">Terms</a></li>
-                <li><a href="">Help</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3 col-sm-3">
-              <h6>Contact Us</h6>
-                <ul class="contact">
-                	<li><i class="icon ion-ios-telephone-outline"></i>+41 (79) 936 8203</li>
-                	<li><i class="icon ion-ios-email-outline"></i>info@functionalbox.ch</li>
-                  <li><i class="icon ion-ios-location-outline"></i>Rapperswil Switzerland</li>
-                </ul>
-            </div>
-          </div>
-      	</div>
-      </div>
-      <div class="copyright">
-        <p>copyright functional box {% now 'Y' %}. All rights reserved</p>
-      </div>
-		</footer>
+		{% include 'socialmedia/footer.html' %}
 
     <!-- Scripts
     ================================================= -->

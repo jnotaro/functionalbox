@@ -19,14 +19,21 @@ from socialmedia.articles.models import Article, ArticleComment
 from socialmedia.questions.models import Question, Answer
 from socialmedia.activities.models import Activity
 from socialmedia.messenger.models import Message
+#from socialmedia.basecore.views import profile
 
 
 def home(request):
     if request.user.is_authenticated():
-        return feeds(request)
+        #return feeds(request)
+        return profile(request,request.user.username)
     else:
         return render(request, 'basecore/cover.html')
 
+def your_box(request):
+    return render(request, 'basecore/your_box.html')
+
+def contact(request):
+    return render(request, 'basecore/contact.html')
 
 @login_required
 def network(request):
@@ -172,9 +179,36 @@ def upload_picture(request):
     except Exception as e:
         return redirect('/settings/picture/')
 
+@login_required
+def upload_bg_picture(request):
+
+    try:
+        profile_bg_pictures = django_settings.MEDIA_ROOT + '/profile_pictures/'
+        if not os.path.exists(profile_bg_pictures):
+            os.makedirs(profile_bg_pictures)
+        f = request.FILES['bgpicture']
+        filename = profile_bg_pictures + request.user.username + '_bg_tmp.jpg'
+        with open(filename, 'wb+') as destination:
+            for chunk in f.chunks():
+                destination.write(chunk)
+        im = Image.open(filename)
+        width, height = im.size
+        if width > 1030:
+            new_width = 1030
+            new_height = (height * 1030) / width
+            new_size = new_width, new_height
+            im.thumbnail(new_size, Image.ANTIALIAS)
+            im.save(filename)
+
+        return redirect('/settings/picture/?upload_bg_picture=uploaded')
+
+    except Exception as e:
+        return redirect('/settings/picture/')
 
 @login_required
 def save_uploaded_picture(request):
+    import pdb
+    pdb.set_trace()
     try:
         x = int(request.POST.get('x'))
         y = int(request.POST.get('y'))
@@ -184,6 +218,28 @@ def save_uploaded_picture(request):
             request.user.username + '_tmp.jpg'
         filename = django_settings.MEDIA_ROOT + '/profile_pictures/' +\
             request.user.username + '.jpg'
+        im = Image.open(tmp_filename)
+        cropped_im = im.crop((x, y, w+x, h+y))
+        cropped_im.thumbnail((200, 200), Image.ANTIALIAS)
+        cropped_im.save(filename)
+        os.remove(tmp_filename)
+
+    except Exception:
+        pass
+
+    return redirect('/settings/picture/')
+
+@login_required
+def save_uploaded_bg_picture(request):
+    try:
+        x = int(request.POST.get('x'))
+        y = int(request.POST.get('y'))
+        w = int(request.POST.get('w'))
+        h = int(request.POST.get('h'))
+        tmp_filename = django_settings.MEDIA_ROOT + '/profile_pictures/' +\
+            request.user.username + '_bg_tmp.jpg'
+        filename = django_settings.MEDIA_ROOT + '/profile_pictures/' +\
+            request.user.username + '_bg.jpg'
         im = Image.open(tmp_filename)
         cropped_im = im.crop((x, y, w+x, h+y))
         cropped_im.thumbnail((200, 200), Image.ANTIALIAS)

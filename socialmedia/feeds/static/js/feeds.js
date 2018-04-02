@@ -87,7 +87,7 @@ $(function () {
     return false;
   });
 
-  $("ul.stream").on("click", ".comment", function () { 
+  $("ul.stream").on("click", ".comment", function () {
     var post = $(this).closest(".post");
     if ($(".comments", post).hasClass("tracking")) {
       $(".comments", post).slideUp();
@@ -201,7 +201,7 @@ $(function () {
     var feed_source = $("#feed_source").val();
     $.ajax({
       url: '/feeds/load_new/',
-      data: { 
+      data: {
         'last_feed': last_feed,
         'feed_source': feed_source
       },
@@ -292,7 +292,8 @@ $(function () {
   });
 
   $("#compose-form textarea[name='post']").keyup(function () {
-    $(this).count(255);
+    //$(this).count(255);
+      $(this).size();
   });
 
 });

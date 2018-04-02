@@ -21,3 +21,4 @@ python-decouple>=3
 Unipath>=1.1
 whitenoise>=3.3.0
 python-slugify
+easy_thumbnails

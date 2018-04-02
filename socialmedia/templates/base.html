@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Bootcamp{% endblock %}</title>
+    <title>Functional Box {% block title %}{% endblock %}</title>
     <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
     <!-- For Ajax Search suggestion -->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all"/>
@@ -20,7 +20,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{% static 'js/bootcamp.js' %}"></script>
-    {% block head %}{% endblock %}
+    <!-- EXTRA HEAD -->
+    {% block head %}{% endblock head %}
   </head>
   <body>
     {% block body %}

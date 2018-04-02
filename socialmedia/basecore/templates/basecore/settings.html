@@ -1,59 +1,29 @@
 {% extends 'socialmedia/base.html' %}
-{% load i18n %}
+{% load i18n  %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language as CURRENT_LANGUAGE %}
 
-{% block title %}Account Settings{% endblock %}
+{% block title %}{% trans 'Account Settings' %}{% endblock %}
 
+{% block extra_css %}
+
+{% endblock extra_css %}
 {% block content %}
-
+<style>
+.timeline-cover{
+    background:url({{ user.profile.get_bg_picture }}) no-repeat !important;
+    background-position: center;
+    background-size: cover;
+    min-width: 1030px;
+    min-height: 360px;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+}
+</style>
     <div class="timeline">
         <div class="timeline-cover">
 
-            <!--Timeline Menu for Large Screens-->
-            <div class="timeline-nav-bar hidden-sm hidden-xs">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="profile-info">
-                            <img src="{{ user.profile.get_picture }}" alt="" class="img-responsive profile-photo"/>
-                            <h3>{{ user.profile.get_screen_name }}</h3>
-                            <p class="text-muted">{{ user.profile.job_title }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <ul class="list-inline profile-menu">
-                            <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
-                  <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
-                  <li><a href="{% url 'questions' %}">{% trans 'Q&A' %}</a></li>
-                  <li><a href="{% url 'network' %}">{% trans 'Network' %}</a></li>
-                        </ul>
-                        <ul class="follow-me list-inline">
-                            <li>1,299 people following her</li>
-                            <li>
-                                <button class="btn-primary">Add Friend</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!--Timeline Menu for Large Screens End-->
-
-            <!--Timeline Menu for Small Screens-->
-            <div class="navbar-mobile hidden-lg hidden-md">
-                <div class="profile-info">
-                    <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo"/>
-                    <h4>Sarah Cruiz</h4>
-                    <p class="text-muted">Creative Director</p>
-                </div>
-                <div class="mobile-menu">
-                    <ul class="list-inline">
-                        <li><a href="timline.html">Timeline</a></li>
-                        <li><a href="timeline-about.html" class="active">About</a></li>
-                        <li><a href="timeline-album.html">Album</a></li>
-                        <li><a href="timeline-friends.html">Friends</a></li>
-                    </ul>
-                    <button class="btn-primary">Add Friend</button>
-                </div>
-            </div><!--Timeline Menu for Small Screens End-->
+            {% include 'basecore/includes/header.html' %}
 
         </div>
         <div id="page-contents">
@@ -145,7 +115,7 @@
                                             <option>31</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-sm-3 col-xs-6">
+xx                                    <div class="form-group col-sm-3 col-xs-6">
                                         <label for="month" class="sr-only"></label>
                                         <select class="form-control" id="month">
                                             <option value="month">Month</option>
@@ -469,7 +439,7 @@
 
                     <!--Sticky Timeline Activity Sidebar-->
                     <div id="sticky-sidebar">
-                        <h4 class="grey">Sarah's activity</h4>
+                        {% comment %}<h4 class="grey">Sarah's activity</h4>
                         <div class="feed-item">
                             <div class="live-activity">
                                 <p><a href="#" class="profile-link">Sarah</a> Commended on a Photo</p>
@@ -493,7 +463,7 @@
                                 <p><a href="#" class="profile-link">Sarah</a> has shared an album</p>
                                 <p class="text-muted">a day ago</p>
                             </div>
-                        </div>
+                        </div>{% endcomment %}
                     </div>
                 </div>
             </div>

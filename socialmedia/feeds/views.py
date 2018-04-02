@@ -156,13 +156,13 @@ def comment(request):
             feed.comment(user=user, post=post)
             user.profile.notify_commented(feed)
             user.profile.notify_also_commented(feed)
-        return render(request, 'feeds/partial_feed_comments.html',
+        return render(request, 'feeds/partial_feed_comments_fbx.html',
                       {'feed': feed})
 
     else:
         feed_id = request.GET.get('feed')
         feed = Feed.objects.get(pk=feed_id)
-        return render(request, 'feeds/partial_feed_comments.html',
+        return render(request, 'feeds/partial_feed_comments_fbx.html',
                       {'feed': feed})
 
 
@@ -189,7 +189,7 @@ def track_comments(request):
     feed = Feed.objects.get(pk=feed_id)
     if len(feed.get_comments()) > 0:
         return render(
-            request, 'feeds/partial_feed_comments.html', {'feed': feed})
+            request, 'feeds/partial_feed_comments_fbx.html', {'feed': feed})
 
     else:
         return HttpResponse()
